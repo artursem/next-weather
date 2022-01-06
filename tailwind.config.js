@@ -10,6 +10,8 @@ module.exports = {
 			backgroundImage: {
 				'main-background':
 					"url('https://images.unsplash.com/photo-1547483238-fab280308b0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80')",
+				'sec-background':
+					"url('https://images.unsplash.com/photo-1542272201-b1ca555f8505?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')",
 			},
 			colors: {
 				transparent: 'rgba(0,0,0,0)',

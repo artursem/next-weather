@@ -24,7 +24,7 @@ const LocatonInput = (props) => {
 					ref={locationRef}
 					onChange={handleInputChange}
 					className='border-none bg-opacity-0 bg-transparent 
-								h-12 p-1 w-full'
+								h-12 p-1 w-full cursor-pointer'
 				/>
 				<SearchButton onClick={handleSearch} />
 			</form>

@@ -1,16 +1,22 @@
 import { Fragment } from 'react';
 import Card from '../components/layout/Card';
 import LocatonInput from '../components/layout/LocationInput';
+import WeatherNow from '../components/weather/WeatherNow';
+import WeatherWeek from '../components/weather/WeatherWeek';
 
 export default function Home() {
 	return (
-		<Fragment>
+		<div className='flex flex-col items-stretch w-full max-w-2xl '>
 			<Card>
 				<LocatonInput />
 			</Card>
-			<Card classes='p-2'>test 1</Card>
-			<Card classes='h-72 p-2'>test 2</Card>
-			<Card classes='h-96 p-2'>test 3</Card>
-		</Fragment>
+			<Card classes='p-2'>
+				<WeatherNow />
+			</Card>
+			<Card classes='p-2'>
+				<WeatherWeek />
+			</Card>
+			<Card classes='h-48 p-2'>MAPA</Card>
+		</div>
 	);
 }
