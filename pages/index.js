@@ -1,12 +1,13 @@
-import { Fragment } from 'react';
+import { useState } from 'react';
 import Card from '../components/layout/Card';
 import LocatonInput from '../components/weather/LocationInput';
 import WeatherNow from '../components/weather/WeatherNow';
 import WeatherWeek from '../components/weather/WeatherWeek';
 
-export default function Home() {
-	const getLocation = (location) => {
-		console.log(location.method, location.city, location.lon, location.lat);
+export default function Home(pageProps) {
+	const [query, setQuery] = useState(null);
+	const getLocation = (search) => {
+		setQuery(search);
 	};
 
 	return (
@@ -14,9 +15,11 @@ export default function Home() {
 			<Card>
 				<LocatonInput onSearch={getLocation} />
 			</Card>
-			<Card classes='p-2'>
-				<WeatherNow />
-			</Card>
+			{query && (
+				<Card classes='p-2'>
+					<WeatherNow />
+				</Card>
+			)}
 			<Card classes='p-2'>
 				<WeatherWeek />
 			</Card>
