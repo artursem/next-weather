@@ -4,7 +4,7 @@ import DaySection from '../layout/DaySection';
 
 const WeatherWeek = (props) => {
 	return (
-		<ul className='w-full flex flex-col items-stretch'>
+		<ul className='w-full flex flex-col items-stretch m-0'>
 			<DaySection id={1} day={'monday'} icon={<SunLight />} temp={1} />
 			<DaySection id={2} day={'tuesday'} icon={<CloudSunny />} temp={1} />
 			<DaySection id={3} day={'wednsday'} icon={<Cloud />} temp={12} />

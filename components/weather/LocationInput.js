@@ -1,6 +1,6 @@
 import { Fragment, useRef, useState } from 'react';
-import GPSButton from './GPSButton';
-import SearchButton from './SearchButton';
+import GPSButton from '../layout/GPSButton';
+import SearchButton from '../layout/SearchButton';
 const LocatonInput = (props) => {
 	const [inputCity, setInputCity] = useState('');
 	const locationRef = useRef();
@@ -11,12 +11,30 @@ const LocatonInput = (props) => {
 
 	const handleSearch = (event) => {
 		event.preventDefault();
-		console.log(inputCity);
+
+		props.onSearch({
+			method: 'city',
+			city: locationRef.current.value,
+			lat: null,
+			lon: null,
+		});
+	};
+
+	const handleCurrentPosition = () => {
+		const success = (position) => {
+			props.onSearch({
+				method: 'geo',
+				city: null,
+				lat: position.coords.latitude,
+				lon: position.coords.longitude,
+			});
+		};
+		navigator.geolocation.getCurrentPosition(success);
 	};
 
 	return (
 		<Fragment>
-			<form className='flex-1 flex flex-row'>
+			<form onSubmit={handleSearch} className='flex-1 flex flex-row'>
 				<input
 					type='search'
 					id={props.id}
@@ -26,9 +44,9 @@ const LocatonInput = (props) => {
 					className='border-none bg-opacity-0 bg-transparent 
 								h-12 p-1 w-full cursor-pointer'
 				/>
-				<SearchButton onClick={handleSearch} />
+				<SearchButton />
 			</form>
-			<GPSButton />
+			<GPSButton onClick={handleCurrentPosition} />
 		</Fragment>
 	);
 };

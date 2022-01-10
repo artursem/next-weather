@@ -1,14 +1,18 @@
 import { Fragment } from 'react';
 import Card from '../components/layout/Card';
-import LocatonInput from '../components/layout/LocationInput';
+import LocatonInput from '../components/weather/LocationInput';
 import WeatherNow from '../components/weather/WeatherNow';
 import WeatherWeek from '../components/weather/WeatherWeek';
 
 export default function Home() {
+	const getLocation = (location) => {
+		console.log(location.method, location.city, location.lon, location.lat);
+	};
+
 	return (
 		<div className='flex flex-col items-stretch w-full max-w-2xl '>
 			<Card>
-				<LocatonInput />
+				<LocatonInput onSearch={getLocation} />
 			</Card>
 			<Card classes='p-2'>
 				<WeatherNow />
